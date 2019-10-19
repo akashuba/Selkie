@@ -1,5 +1,5 @@
 # heroku-node-telegram-bot
-Starter pack for running telegram bot on the Heroku using Node.js
+Starter pack for running telegram bot on the Heroku using Node.js.
 
 # Step-by-step
 
