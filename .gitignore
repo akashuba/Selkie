@@ -1,5 +1,8 @@
 
 node_modules/*
+arkit.svg
 # Heroku environment configuration
 .env
 env.cmd
+# Auto format config
+.prettierrc
