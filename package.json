@@ -8,6 +8,8 @@
     "start": "node index.js",
     "switch_to_dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js"
   },
+  "author": "Volodymyr Lut",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
     "dotenv": "^4.0.0",
