@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === 'production') {
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.on('message', msg => {
-    const name = msg.from.first_name;
+	const name = msg.from.first_name;
+
     if (msg.text.toLowerCase().indexOf('password') !== -1) {
         bot.sendMessage(msg.chat.id, passwordGenerator.getPassword(8));
     } else {
