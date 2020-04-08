@@ -16,7 +16,7 @@ class ApiHh {
 			
 					resolve(this.vacancies = response.body)
 				} else {
-					throw error;
+					console.log(error);
 				}
 			})
 		})
