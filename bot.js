@@ -22,14 +22,21 @@ bot.on('message', async (msg) => {
 	if (messageText.indexOf('password') !== -1) {
 		bot.sendMessage(msg.chat.id, passwordGenerator.getPassword(8));
 	}
+
+	else if (messageText.indexOf('help') !== -1) {
+		bot.sendMessage(msg.chat.id, "Now I can answer on:\n password \n skill <checked skill in hh.ru> \n or just greet you =)")
+	}
+
 	else if (messageText.indexOf('skill') !== -1) {
 		const skill = messageText.split(' ')[1]
 		await api.hh.getVacancies(skill);
 
 		const vacancies = JSON.parse(api.hh.vacancies);
-		bot.sendMessage(msg.chat.id, `${skill} - has ${vacancies.items.length} vacancies in Moscow`)
+		bot.sendMessage(msg.chat.id, `${skill} - has ${vacancies.found} vacancies on hh.ru`)
 
-	} else {
+	}
+
+	else {
 		bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
 			// reply sent!
 		});

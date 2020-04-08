@@ -8,11 +8,11 @@ http.createServer(async function(request, response) {
 		if(request.url === "/") {
 			response.write('It works');
 
-		await api.hh.getVacancies('cobol');
+		await api.hh.getVacancies('javascript');
 
 		const vacancies = JSON.parse(api.hh.vacancies)
 
-		console.log(vacancies.items.length);
+		console.log(vacancies.found);
 		
 			response.end();
 		}
