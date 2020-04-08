@@ -8,7 +8,7 @@ http.createServer(async function(request, response) {
 		if(request.url === "/") {
 			response.write('It works');
 
-		await api.hh.getVacancies('javascript');
+		await api.hh.getVacancies('дизайнер');
 
 		const vacancies = JSON.parse(api.hh.vacancies)
 
