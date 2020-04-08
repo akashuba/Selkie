@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
 
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
-bot.on('message', msg => {
+bot.on('message', async (msg) => {
 	const name = msg.from.first_name;
 	const messageText = msg.text.toLowerCase();
 
