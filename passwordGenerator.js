@@ -27,4 +27,4 @@ class PasswordGenerator {
 
 const passwordGenerator = new PasswordGenerator();
 
-exports.passwordGenerator = passwordGenerator;
+module.exports = passwordGenerator;

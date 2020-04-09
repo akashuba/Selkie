@@ -5,4 +5,4 @@ class Api {
 	hh = new ApiHh();
 } 
 
-exports.api = new Api();
+module.exports = new Api();

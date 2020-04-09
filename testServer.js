@@ -1,5 +1,5 @@
 const http = require('http');
-const api = require('./api/api').api;
+const api = require('./api');
 
 http.createServer(async function(request, response) {
 	response.setHeader("Content-Type", "application/json");

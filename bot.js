@@ -1,9 +1,9 @@
-const api = require('./api/api').api;
+const Bot = require('node-telegram-bot-api');
+
+const api = require('./api');
+const passwordGenerator = require('./passwordGenerator');
 
 const token = process.env.TOKEN;
-
-const Bot = require('node-telegram-bot-api');
-const passwordGenerator = require('./passwordGenerator').passwordGenerator;
 let bot;
 
 if (process.env.NODE_ENV === 'production') {
@@ -28,12 +28,15 @@ bot.on('message', async (msg) => {
 	}
 
 	else if (messageText.indexOf('skill') !== -1) {
-		const skill = messageText.split(' ')[1]
-		await api.hh.getVacancies(skill);
-
-		const vacancies = JSON.parse(api.hh.vacancies);
-		bot.sendMessage(msg.chat.id, `${skill} - has ${vacancies.found} vacancies on hh.ru`)
-
+		const skill = messageText.split(' ').slice(1);
+		try {
+			await api.hh.getVacancies(skill);
+	
+			const vacancies = JSON.parse(api.hh.vacancies);
+			bot.sendMessage(msg.chat.id, `${skill} - has ${vacancies.found} vacancies on hh.ru`)
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	else {
